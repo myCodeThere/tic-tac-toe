@@ -3,7 +3,9 @@ package com.example.game;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -139,6 +141,7 @@ public class GameFieldActivity extends Activity implements OnClickListener {
 		usersUsesButtons.add(tag);
 		if (Utils.checkWinner(usersUsesButtons)) {
 			text.setText("Конец");
+			startDialog();
 		}
 	}
 
@@ -150,6 +153,7 @@ public class GameFieldActivity extends Activity implements OnClickListener {
 		count++;
 		if (Utils.checkWinner(computerUsesButtons)) {
 			text.setText("Конец");
+			startDialog();
 		}
 	}
 
@@ -204,8 +208,18 @@ public class GameFieldActivity extends Activity implements OnClickListener {
 		usesButtons.add(tag);
 		if (Utils.checkWinner(usersOneUsesButtons) || Utils.checkWinner(usersTwoUsesButtons)){
 			text.setText("Конец");
+			startDialog();
 		}
 	}
-
+	
+	@SuppressLint("NewApi")
+	public void startDialog() {
+		DialogFragment dialog = new AskDialog();
+		dialog.show(getFragmentManager(), "aa");
+	}
+	
+	public void playOnceMore() {
+		count = 0;
+	}
 	
 }

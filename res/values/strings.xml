@@ -8,5 +8,6 @@
     <string name="hello_string">Здравствуйте!</string>
     <string name="with_comp">Играть с компьютером</string>
     <string name="with_friend">Играть с другом</string>
+    <string name="cancel">Выйти</string>
 
 </resources>

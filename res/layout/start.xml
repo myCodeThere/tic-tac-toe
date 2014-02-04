@@ -27,6 +27,14 @@
         android:layout_below="@+id/withComputer"
         android:layout_centerHorizontal="true"
         android:text="@string/with_friend" />
+    
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/withFriend"
+        android:layout_centerHorizontal="true"
+        android:text="@string/cancel" />
 
 
 </RelativeLayout>

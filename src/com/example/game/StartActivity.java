@@ -20,7 +20,7 @@ public class StartActivity extends Activity implements OnClickListener {
 	public static final int IDENTIF_PLAY_WITH_COMPUTER = 2;
 	public static final String IDENTIF_PLAY_WITH_COMPUTER_KEY = "IDENTIF_PLAY_WITH_COMPUTER_KEY";
 
-	private Button withComputer, withFriend;
+	private Button withComputer, withFriend, cancel;
 	private TextView hello;
 	private BackgroundSound mBackgroundSound = new BackgroundSound();
 
@@ -36,9 +36,11 @@ public class StartActivity extends Activity implements OnClickListener {
 		hello.setPadding(0, getDisplayHeight() / 4, 0, 0);
 		hello.setTextSize(20);
 		hello.setTextColor(Color.YELLOW);
+		cancel = (Button) findViewById(R.id.cancel);
 
 		withComputer.setOnClickListener(this);
 		withFriend.setOnClickListener(this);
+		cancel.setOnClickListener(this);
 	}
 
 	public void onResume() {
@@ -63,6 +65,10 @@ public class StartActivity extends Activity implements OnClickListener {
 			intent.putExtra(IDENTIF_PLAY_WITH_FRIEND_KEY,
 					IDENTIF_PLAY_WITH_FRIEND);
 			startActivity(intent);
+			break;
+		case R.id.cancel:
+			this.finish();
+			mBackgroundSound.cancel(true);
 			break;
 		}
 	}
